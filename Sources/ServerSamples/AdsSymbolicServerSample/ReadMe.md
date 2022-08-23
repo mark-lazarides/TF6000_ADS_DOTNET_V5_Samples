@@ -179,7 +179,7 @@ Main.rpcInvoke1.c       Primitive DINT                      4    False  False   
 Get the symbol with RpcMethods (RpcStruct):
 
 ```powershell
- PS> $rpcSymbol = $s | get-tcSymbol -path 'Main.RpcInvoke1'
+ PS> $rpcSymbol = $session | get-tcSymbol -path 'Main.RpcInvoke1'
  PS> $rpcSymbol
 
 InstancePath    Category DataType    Size Static Persistant IG IO
@@ -191,7 +191,7 @@ Main.rpcInvoke1 Struct   MYRPCSTRUCT 169  False  False      1  117A
 Get the (dynamic) fields and methods of the symbol:
 
 ```powershell
-PS> > $rpcSymbol | get-member -MemberType dynamic
+PS> $rpcSymbol | get-member -MemberType dynamic
 
    TypeName: TwinCAT.TypeSystem.DynamicRpcStructInstance
 
@@ -216,6 +216,6 @@ name                  Dynamic    dynamic name
 Call the dynamic method:
 
 ```powershell
-PS> 0> $rpcSymbol.Method1(4,5)
+PS> $rpcSymbol.Method1(4,5)
 9
 ```
